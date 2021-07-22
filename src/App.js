@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+/* import MsgList from './components/MsgList';
+import InputMsg from './components/InputMsg'; */
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import BarNav from './components/BarNav';
+import SApp from './SApp';
+import ContactUs from './components/ContactUs';
+import HomePage from './components/HomePage';
+import DevisMain from './components/DevisMain';
+import './reset.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <SApp>
+        <div className='App'>
+          {/*    <MsgList />
+      <InputMsg /> */}
+          <BarNav />
+
+          <Switch>
+            <Route exact path='/' component={HomePage} />
+            <Route path='/contact-us' component={ContactUs} />
+            <Route path='/devis' component={DevisMain} />
+          </Switch>
+        </div>
+      </SApp>
+    </BrowserRouter>
   );
 }
 
